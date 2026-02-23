@@ -99,15 +99,15 @@
                                     <constraint firstAttribute="height" constant="60" id="W2X-FP-SN9"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Y2r-Gc-Hm8">
-                                <rect key="frame" x="0.0" y="322" width="352" height="462"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Y2r-Gc-Hm8">
+                                <rect key="frame" x="0.0" y="322" width="343" height="462"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemberCell" rowHeight="150" id="Cfl-p1-3FZ">
-                                        <rect key="frame" x="0.0" y="50" width="352" height="150"/>
+                                        <rect key="frame" x="0.0" y="50" width="343" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cfl-p1-3FZ" id="A6B-qF-o4K">
-                                            <rect key="frame" x="0.0" y="0.0" width="352" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -116,6 +116,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1q-hj-Ndu">
                                 <rect key="frame" x="0.0" y="50" width="393" height="142"/>
                                 <color key="backgroundColor" systemColor="tintColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTt-Br-m64">
+                                <rect key="frame" x="343" y="322" width="50" height="462"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ea0-RY-aCk">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="462"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ea0-RY-aCk" firstAttribute="top" secondItem="jTt-Br-m64" secondAttribute="top" id="ftX-iE-szi"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ea0-RY-aCk" secondAttribute="trailing" id="giB-pf-zwo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ea0-RY-aCk" secondAttribute="bottom" id="kRy-Fk-bJp"/>
+                                    <constraint firstItem="Ea0-RY-aCk" firstAttribute="leading" secondItem="jTt-Br-m64" secondAttribute="leading" id="wGm-OP-xPX"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YJc-X4-quM"/>
@@ -128,17 +143,22 @@
                             <constraint firstItem="Y2r-Gc-Hm8" firstAttribute="top" secondItem="oL2-Lc-wMg" secondAttribute="bottom" id="Com-hp-Qet"/>
                             <constraint firstItem="YJc-X4-quM" firstAttribute="trailing" secondItem="Q1q-hj-Ndu" secondAttribute="trailing" id="GoG-eO-Y0g"/>
                             <constraint firstItem="YJc-X4-quM" firstAttribute="trailing" secondItem="oL2-Lc-wMg" secondAttribute="trailing" id="JEO-tJ-3AI"/>
+                            <constraint firstItem="jTt-Br-m64" firstAttribute="top" secondItem="Y2r-Gc-Hm8" secondAttribute="top" id="N3S-JH-Ypa"/>
                             <constraint firstItem="Q1q-hj-Ndu" firstAttribute="leading" secondItem="YJc-X4-quM" secondAttribute="leading" id="NKw-3i-NCa"/>
                             <constraint firstItem="Q1q-hj-Ndu" firstAttribute="top" secondItem="lUw-Ov-07K" secondAttribute="top" constant="50" id="VxG-BW-7Ee"/>
+                            <constraint firstItem="jTt-Br-m64" firstAttribute="leading" secondItem="Y2r-Gc-Hm8" secondAttribute="trailing" id="hC5-wa-w0r"/>
+                            <constraint firstItem="YJc-X4-quM" firstAttribute="trailing" secondItem="jTt-Br-m64" secondAttribute="trailing" id="jNV-MI-dgq"/>
                             <constraint firstItem="YJc-X4-quM" firstAttribute="trailing" secondItem="Y2r-Gc-Hm8" secondAttribute="trailing" constant="50" id="kJ0-RL-gh1"/>
                             <constraint firstItem="YJc-X4-quM" firstAttribute="bottom" secondItem="Y2r-Gc-Hm8" secondAttribute="bottom" id="lQx-qX-dVA"/>
                             <constraint firstItem="oL2-Lc-wMg" firstAttribute="leading" secondItem="YJc-X4-quM" secondAttribute="leading" id="sUK-GK-dnh"/>
                             <constraint firstItem="YJc-X4-quM" firstAttribute="trailing" secondItem="5Hk-8V-zdL" secondAttribute="trailing" id="tdT-m8-6Ho"/>
+                            <constraint firstItem="jTt-Br-m64" firstAttribute="bottom" secondItem="Y2r-Gc-Hm8" secondAttribute="bottom" id="tgK-XF-mtV"/>
                             <constraint firstItem="5Hk-8V-zdL" firstAttribute="top" secondItem="YJc-X4-quM" secondAttribute="top" constant="50" id="yjs-xK-U2H"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="taU-Te-prl"/>
                     <connections>
+                        <outlet property="alphabetStackView" destination="Ea0-RY-aCk" id="6PH-jI-cZh"/>
                         <outlet property="tableView" destination="Y2r-Gc-Hm8" id="EhF-HH-jmW"/>
                     </connections>
                 </viewController>

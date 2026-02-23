@@ -12,6 +12,7 @@ class MemberTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var CallUIVIew: UIView!
+    @IBOutlet weak var Adddlabel: UILabel!
     @IBOutlet weak var smsUIVIew: UIView!
     @IBOutlet weak var WhatsAppui: UIView!
     @IBOutlet weak var EndUI: UIView!

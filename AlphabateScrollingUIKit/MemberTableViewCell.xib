@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5J-sv-Kti">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="116"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oBZ-4l-pFM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github" translatesAutoresizingMaskIntoConstraints="NO" id="oBZ-4l-pFM">
                                 <rect key="frame" x="15" y="15" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="6U7-rU-9Og"/>
@@ -36,13 +36,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHK-Hn-fC7">
-                                <rect key="frame" x="75" y="36" width="233" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="ajc-Q2-z4b"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmedabad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHK-Hn-fC7">
+                                <rect key="frame" x="75" y="36" width="143" height="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ttf-tK-xwi">
@@ -222,17 +220,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IHK-Hn-fC7" firstAttribute="leading" secondItem="oBZ-4l-pFM" secondAttribute="trailing" constant="20" id="4qc-TX-QfW"/>
+                            <constraint firstItem="IHK-Hn-fC7" firstAttribute="leading" secondItem="oBZ-4l-pFM" secondAttribute="trailing" constant="20" id="2Eb-dD-CSM"/>
                             <constraint firstItem="Ttf-tK-xwi" firstAttribute="top" secondItem="oBZ-4l-pFM" secondAttribute="bottom" constant="10" id="BJc-uy-DH8"/>
                             <constraint firstItem="AwA-wr-YKf" firstAttribute="top" secondItem="w5J-sv-Kti" secondAttribute="top" constant="15" id="FFk-sX-0B8"/>
                             <constraint firstItem="oBZ-4l-pFM" firstAttribute="top" secondItem="w5J-sv-Kti" secondAttribute="top" constant="15" id="HaQ-JP-6hA"/>
+                            <constraint firstAttribute="trailing" secondItem="IHK-Hn-fC7" secondAttribute="trailing" constant="100" id="Liw-9Z-YoQ"/>
                             <constraint firstAttribute="trailing" secondItem="AwA-wr-YKf" secondAttribute="trailing" constant="10" id="Pcv-LS-hfp"/>
                             <constraint firstItem="oBZ-4l-pFM" firstAttribute="leading" secondItem="w5J-sv-Kti" secondAttribute="leading" constant="15" id="QjK-eK-H6R"/>
+                            <constraint firstItem="IHK-Hn-fC7" firstAttribute="top" secondItem="AwA-wr-YKf" secondAttribute="bottom" constant="5" id="X9Q-kx-mPV"/>
+                            <constraint firstItem="Ttf-tK-xwi" firstAttribute="top" secondItem="IHK-Hn-fC7" secondAttribute="bottom" constant="13" id="Yaa-Xw-XT1"/>
                             <constraint firstAttribute="trailing" secondItem="Ttf-tK-xwi" secondAttribute="trailing" constant="15" id="Zn9-LE-a7S"/>
-                            <constraint firstAttribute="trailing" secondItem="IHK-Hn-fC7" secondAttribute="trailing" constant="10" id="cSH-mm-mHo"/>
                             <constraint firstItem="Ttf-tK-xwi" firstAttribute="leading" secondItem="w5J-sv-Kti" secondAttribute="leading" constant="15" id="hj2-6w-sZ2"/>
                             <constraint firstAttribute="bottom" secondItem="Ttf-tK-xwi" secondAttribute="bottom" constant="11" id="tKF-Ja-fMW"/>
-                            <constraint firstItem="IHK-Hn-fC7" firstAttribute="top" secondItem="AwA-wr-YKf" secondAttribute="bottom" constant="5" id="vZQ-zT-UuT"/>
                             <constraint firstItem="AwA-wr-YKf" firstAttribute="leading" secondItem="oBZ-4l-pFM" secondAttribute="trailing" constant="20" id="zdS-JZ-oTP"/>
                         </constraints>
                     </view>
@@ -246,6 +245,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="Adddlabel" destination="IHK-Hn-fC7" id="PAB-k0-omO"/>
                 <outlet property="CallUIVIew" destination="ZXM-0K-tnX" id="9uh-3c-4X7"/>
                 <outlet property="EndUI" destination="lhX-Xe-G5g" id="7iZ-hR-K9U"/>
                 <outlet property="WhatsAppui" destination="ct8-Ow-GEb" id="fn0-NN-51F"/>
@@ -257,6 +257,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="github" width="512" height="512"/>
         <image name="message.badge.filled.fill" catalog="system" width="128" height="122"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="phone.bubble" catalog="system" width="128" height="110"/>
