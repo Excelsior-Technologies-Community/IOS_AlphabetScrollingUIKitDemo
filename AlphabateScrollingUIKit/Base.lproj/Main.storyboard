@@ -257,10 +257,12 @@
                         <outlet property="ConnectionUIView" destination="UpH-Pp-7sj" id="ih3-bZ-A29"/>
                         <outlet property="FindConnectionview" destination="wa2-ir-hys" id="kp6-wE-jbO"/>
                         <outlet property="MyCOnUIVIew" destination="BeX-5j-kes" id="PdR-tw-PsM"/>
-                        <outlet property="MyConnectionBTN" destination="40C-Gd-V3c" id="2Cv-1w-mtb"/>
+                        <outlet property="SearchUI" destination="iOT-jF-Oce" id="aNn-88-g3M"/>
                         <outlet property="SearchUIConstrains" destination="bbx-Do-TpP" id="orz-f4-DoH"/>
                         <outlet property="SearchUIView" destination="pHH-aJ-cIt" id="nwz-dj-JSQ"/>
                         <outlet property="alphabetStackView" destination="Ea0-RY-aCk" id="6PH-jI-cZh"/>
+                        <outlet property="findConnectionButton" destination="QWW-7z-1uH" id="pun-VW-jxo"/>
+                        <outlet property="myConnectionButton" destination="40C-Gd-V3c" id="Oo2-iD-9G0"/>
                         <outlet property="tableView" destination="Y2r-Gc-Hm8" id="EhF-HH-jmW"/>
                     </connections>
                 </viewController>

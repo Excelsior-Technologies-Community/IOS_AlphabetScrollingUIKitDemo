@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var MyCOnUIVIew: UIView!
     
-    @IBOutlet weak var MyConnectionBTN: UIButton!
+    @IBOutlet weak var SearchUI: UIView!
+    @IBOutlet weak var myConnectionButton: UIButton!
+    @IBOutlet weak var findConnectionButton: UIButton!
     @IBOutlet weak var SearchUIView: UIView!
     @IBOutlet weak var alphabetStackView: UIStackView!
    
@@ -45,6 +47,7 @@ class ViewController: UIViewController {
     var isSearchVisible = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTabUI()
         tableView.register(
               UINib(nibName: "MemberTableViewCell", bundle: nil),
               forCellReuseIdentifier: "MemberTableViewCell"
@@ -53,6 +56,12 @@ class ViewController: UIViewController {
             UINib(nibName: "FindConnectionTableViewCell", bundle: nil),
             forCellReuseIdentifier: "FindConnectionTableViewCell"
         )
+        SearchUI.layer.cornerRadius = 10
+        MyCOnUIVIew.layer.cornerRadius = 20
+        FindConnectionview.layer.cornerRadius = 20
+
+        MyCOnUIVIew.layer.borderWidth = 1
+        FindConnectionview.layer.borderWidth = 1
         SearchUIView.isHidden = true
         SearchUIConstrains.constant = 0
         setupAlphabet()
@@ -66,10 +75,12 @@ class ViewController: UIViewController {
     
     @IBAction func MyConnection(_ sender: Any) {
         currentMode = .myConnection
+        updateTabUI()
           tableView.reloadData()
     }
     @IBAction func FindConnection(_ sender: Any) {
         currentMode = .findConnection
+        updateTabUI()
         tableView.reloadData()
     }
     @IBAction func ConnectionRequest(_ sender: Any) {
@@ -95,8 +106,28 @@ class ViewController: UIViewController {
             }
     }
     
-    
-    
+    func updateTabUI() {
+        
+        let lightBlue = UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1.0)
+        let borderBlue = UIColor(red: 0.55, green: 0.75, blue: 1.0, alpha: 1.0)
+        
+        switch currentMode {
+            
+        case .myConnection:
+            MyCOnUIVIew.backgroundColor = lightBlue
+            MyCOnUIVIew.layer.borderColor = borderBlue.cgColor
+            
+            FindConnectionview.backgroundColor = .clear
+            FindConnectionview.layer.borderColor = borderBlue.cgColor
+            
+        case .findConnection:
+            FindConnectionview.backgroundColor = lightBlue
+            FindConnectionview.layer.borderColor = borderBlue.cgColor
+            
+            MyCOnUIVIew.backgroundColor = .clear
+            MyCOnUIVIew.layer.borderColor = borderBlue.cgColor
+        }
+    }
     func setupAlphabet() {
         
         let alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
