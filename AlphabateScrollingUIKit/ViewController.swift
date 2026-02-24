@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var SearchUIConstrains: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     var members: [Member] = []
+    var isSearchVisible = false
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(
@@ -30,7 +31,36 @@ class ViewController: UIViewController {
           tableView.delegate = self
           tableView.dataSource = self
     }
-
+    
+    @IBAction func MyConnection(_ sender: Any) {
+    }
+    @IBAction func FindConnection(_ sender: Any) {
+    }
+    @IBAction func ConnectionRequest(_ sender: Any) {
+    }
+    
+    @IBAction func SearchButton(_ sender: Any) {
+        isSearchVisible.toggle()
+            
+            if isSearchVisible {
+                SearchUIView.isHidden = false
+                SearchUIConstrains.constant = 50
+            } else {
+                SearchUIConstrains.constant = 0
+                
+                // hide after animation
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.SearchUIView.isHidden = true
+                }
+            }
+            
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+    }
+    
+    
+    
     func setupAlphabet() {
         
         let alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

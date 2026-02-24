@@ -30,7 +30,12 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40C-Gd-V3c">
                                                 <rect key="frame" x="5" y="5" width="116.33333333333333" height="50"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="My Conenction">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="MyConnection:" destination="3qt-ss-MeG" eventType="touchUpInside" id="LBU-XA-vW5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -47,7 +52,12 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWW-7z-1uH">
                                                 <rect key="frame" x="5" y="5" width="116.33333333333333" height="50"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Find Connection">
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="11"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="FindConnection:" destination="3qt-ss-MeG" eventType="touchUpInside" id="g6i-rq-1dh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -64,7 +74,12 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-ew-MI2">
                                                 <rect key="frame" x="5" y="5" width="116.33333333333333" height="50"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Connection Request">
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="8"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="ConnectionRequest:" destination="3qt-ss-MeG" eventType="touchUpInside" id="d83-OB-YEz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -121,6 +136,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="SearchButton:" destination="3qt-ss-MeG" eventType="touchUpInside" id="Q7T-bt-pr7"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7A-oI-R7x">
                                         <rect key="frame" x="15" y="84.666666666666671" width="86.666666666666671" height="25.333333333333329"/>
