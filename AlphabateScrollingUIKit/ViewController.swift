@@ -11,7 +11,10 @@ class ViewController: UIViewController {
 
     @IBAction func searchTapped(_ sender: UIBarButtonItem) {
     }
+    @IBOutlet weak var SearchUIView: UIView!
     @IBOutlet weak var alphabetStackView: UIStackView!
+    
+    @IBOutlet weak var SearchUIConstrains: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     var members: [Member] = []
     override func viewDidLoad() {
@@ -20,7 +23,10 @@ class ViewController: UIViewController {
               UINib(nibName: "MemberTableViewCell", bundle: nil),
               forCellReuseIdentifier: "MemberTableViewCell"
           )
+        SearchUIView.isHidden = true
+        SearchUIConstrains.constant = 0
         setupAlphabet()
+        SearchUIView.layer.cornerRadius = 10
           tableView.delegate = self
           tableView.dataSource = self
     }
