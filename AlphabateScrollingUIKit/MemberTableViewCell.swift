@@ -16,14 +16,17 @@ class MemberTableViewCell: UITableViewCell {
     @IBOutlet weak var smsUIVIew: UIView!
     @IBOutlet weak var WhatsAppui: UIView!
     @IBOutlet weak var EndUI: UIView!
+    @IBOutlet weak var BGView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        CallUIVIew.layer.cornerRadius = 10
-        smsUIVIew.layer.cornerRadius = 10
-        WhatsAppui.layer.cornerRadius = 10
-        EndUI.layer.cornerRadius = 10
+        CallUIVIew.layer.cornerRadius = 15
+        smsUIVIew.layer.cornerRadius = 15
+        WhatsAppui.layer.cornerRadius = 15
+        EndUI.layer.cornerRadius = 15
         profileImageView.layer.cornerRadius = 20
+        BGView.layer.cornerRadius = 15
+        
         
     }
 

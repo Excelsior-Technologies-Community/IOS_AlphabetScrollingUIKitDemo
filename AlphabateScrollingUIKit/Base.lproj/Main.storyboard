@@ -16,88 +16,121 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yZI-zw-UHQ">
-                                <rect key="frame" x="76" y="362" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oL2-Lc-wMg">
                                 <rect key="frame" x="0.0" y="193" width="393" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x04-Zu-Gdp">
                                         <rect key="frame" x="0.0" y="0.0" width="126.33333333333333" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40C-Gd-V3c">
-                                                <rect key="frame" x="5" y="5" width="116.33333333333333" height="50"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="My Conenction">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="MyConnection:" destination="3qt-ss-MeG" eventType="touchUpInside" id="LBU-XA-vW5"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeX-5j-kes">
+                                                <rect key="frame" x="5" y="5" width="116.33333333333333" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40C-Gd-V3c">
+                                                        <rect key="frame" x="5" y="5" width="106.33333333333333" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="My Conenction">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="11"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="MyConnection:" destination="3qt-ss-MeG" eventType="touchUpInside" id="XPq-n4-dOc"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="40C-Gd-V3c" firstAttribute="leading" secondItem="BeX-5j-kes" secondAttribute="leading" constant="5" id="Oyv-qy-N9n"/>
+                                                    <constraint firstAttribute="bottom" secondItem="40C-Gd-V3c" secondAttribute="bottom" constant="5" id="TAY-o7-0K7"/>
+                                                    <constraint firstItem="40C-Gd-V3c" firstAttribute="top" secondItem="BeX-5j-kes" secondAttribute="top" constant="5" id="X7R-4X-Ou8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="40C-Gd-V3c" secondAttribute="trailing" constant="5" id="hQ1-wa-H3Q"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="40C-Gd-V3c" firstAttribute="leading" secondItem="x04-Zu-Gdp" secondAttribute="leading" constant="5" id="6Pe-II-W3c"/>
-                                            <constraint firstItem="40C-Gd-V3c" firstAttribute="top" secondItem="x04-Zu-Gdp" secondAttribute="top" constant="5" id="Gc2-Xb-EGb"/>
-                                            <constraint firstAttribute="trailing" secondItem="40C-Gd-V3c" secondAttribute="trailing" constant="5" id="gvi-lp-8uW"/>
-                                            <constraint firstAttribute="bottom" secondItem="40C-Gd-V3c" secondAttribute="bottom" constant="5" id="jDm-TF-3Ja"/>
+                                            <constraint firstItem="BeX-5j-kes" firstAttribute="leading" secondItem="x04-Zu-Gdp" secondAttribute="leading" constant="5" id="DbH-ed-CUA"/>
+                                            <constraint firstItem="BeX-5j-kes" firstAttribute="top" secondItem="x04-Zu-Gdp" secondAttribute="top" constant="5" id="HMk-A4-xRQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="BeX-5j-kes" secondAttribute="bottom" constant="15" id="Kc4-jO-5yn"/>
+                                            <constraint firstAttribute="trailing" secondItem="BeX-5j-kes" secondAttribute="trailing" constant="5" id="QVS-3s-j1F"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ce-Gn-DnC">
                                         <rect key="frame" x="133.33333333333334" y="0.0" width="126.33333333333334" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWW-7z-1uH">
-                                                <rect key="frame" x="5" y="5" width="116.33333333333333" height="50"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Find Connection">
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="11"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="FindConnection:" destination="3qt-ss-MeG" eventType="touchUpInside" id="g6i-rq-1dh"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wa2-ir-hys">
+                                                <rect key="frame" x="5" y="5" width="116.33333333333333" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWW-7z-1uH">
+                                                        <rect key="frame" x="5" y="5" width="106.33333333333333" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Find Connection">
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="9"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="FindConnection:" destination="3qt-ss-MeG" eventType="touchUpInside" id="E9Q-mZ-ZqU"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="QWW-7z-1uH" firstAttribute="top" secondItem="wa2-ir-hys" secondAttribute="top" constant="5" id="JqH-3P-1rr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QWW-7z-1uH" secondAttribute="trailing" constant="5" id="UZo-rG-oeH"/>
+                                                    <constraint firstItem="QWW-7z-1uH" firstAttribute="leading" secondItem="wa2-ir-hys" secondAttribute="leading" constant="5" id="dFS-QF-VRr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="QWW-7z-1uH" secondAttribute="bottom" constant="5" id="e6T-t2-dsl"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="QWW-7z-1uH" secondAttribute="bottom" constant="5" id="8pr-5K-PcN"/>
-                                            <constraint firstItem="QWW-7z-1uH" firstAttribute="top" secondItem="2ce-Gn-DnC" secondAttribute="top" constant="5" id="eDi-8D-kN5"/>
-                                            <constraint firstAttribute="trailing" secondItem="QWW-7z-1uH" secondAttribute="trailing" constant="5" id="j37-gn-XXC"/>
-                                            <constraint firstItem="QWW-7z-1uH" firstAttribute="leading" secondItem="2ce-Gn-DnC" secondAttribute="leading" constant="5" id="q2k-GA-o98"/>
+                                            <constraint firstItem="wa2-ir-hys" firstAttribute="top" secondItem="2ce-Gn-DnC" secondAttribute="top" constant="5" id="9iD-Yb-lhW"/>
+                                            <constraint firstAttribute="trailing" secondItem="wa2-ir-hys" secondAttribute="trailing" constant="5" id="bTl-Mv-chx"/>
+                                            <constraint firstAttribute="bottom" secondItem="wa2-ir-hys" secondAttribute="bottom" constant="15" id="cTm-p6-8pA"/>
+                                            <constraint firstItem="wa2-ir-hys" firstAttribute="leading" secondItem="2ce-Gn-DnC" secondAttribute="leading" constant="5" id="k1m-qN-yxQ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onu-8l-twQ">
                                         <rect key="frame" x="266.66666666666669" y="0.0" width="126.33333333333331" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-ew-MI2">
-                                                <rect key="frame" x="5" y="5" width="116.33333333333333" height="50"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Connection Request">
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="8"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="ConnectionRequest:" destination="3qt-ss-MeG" eventType="touchUpInside" id="d83-OB-YEz"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpH-Pp-7sj">
+                                                <rect key="frame" x="5" y="5" width="116.33333333333333" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-ew-MI2">
+                                                        <rect key="frame" x="5" y="5" width="106.33333333333333" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Connection Request">
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="7"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="ConnectionRequest:" destination="3qt-ss-MeG" eventType="touchUpInside" id="d83-OB-YEz"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="eiK-ew-MI2" secondAttribute="trailing" constant="5" id="8Z9-dW-JzX"/>
+                                                    <constraint firstItem="eiK-ew-MI2" firstAttribute="leading" secondItem="UpH-Pp-7sj" secondAttribute="leading" constant="5" id="P9l-rU-axb"/>
+                                                    <constraint firstItem="eiK-ew-MI2" firstAttribute="top" secondItem="UpH-Pp-7sj" secondAttribute="top" constant="5" id="jWg-ek-tiL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="eiK-ew-MI2" secondAttribute="bottom" constant="5" id="vME-mM-6sP"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="eiK-ew-MI2" secondAttribute="trailing" constant="5" id="8Dg-cx-2bD"/>
-                                            <constraint firstItem="eiK-ew-MI2" firstAttribute="top" secondItem="onu-8l-twQ" secondAttribute="top" constant="5" id="8lj-ij-64J"/>
-                                            <constraint firstItem="eiK-ew-MI2" firstAttribute="leading" secondItem="onu-8l-twQ" secondAttribute="leading" constant="5" id="CGd-zT-vJd"/>
-                                            <constraint firstAttribute="bottom" secondItem="eiK-ew-MI2" secondAttribute="bottom" constant="5" id="gtL-Dd-PDc"/>
+                                            <constraint firstAttribute="bottom" secondItem="UpH-Pp-7sj" secondAttribute="bottom" constant="15" id="hHU-uR-F6T"/>
+                                            <constraint firstAttribute="trailing" secondItem="UpH-Pp-7sj" secondAttribute="trailing" constant="5" id="jY5-0x-ZWT"/>
+                                            <constraint firstItem="UpH-Pp-7sj" firstAttribute="leading" secondItem="onu-8l-twQ" secondAttribute="leading" constant="5" id="l4f-hn-iNf"/>
+                                            <constraint firstItem="UpH-Pp-7sj" firstAttribute="top" secondItem="onu-8l-twQ" secondAttribute="top" constant="5" id="x3U-ZE-RZs"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="W2X-FP-SN9"/>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Y2r-Gc-Hm8">
                                 <rect key="frame" x="0.0" y="253" width="343" height="531"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemberCell" rowHeight="150" id="Cfl-p1-3FZ">
                                         <rect key="frame" x="0.0" y="50" width="343" height="150"/>
@@ -106,6 +139,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -220,6 +254,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="taU-Te-prl"/>
                     <connections>
+                        <outlet property="ConnectionUIView" destination="UpH-Pp-7sj" id="ih3-bZ-A29"/>
+                        <outlet property="FindConnectionview" destination="wa2-ir-hys" id="kp6-wE-jbO"/>
+                        <outlet property="MyCOnUIVIew" destination="BeX-5j-kes" id="PdR-tw-PsM"/>
+                        <outlet property="MyConnectionBTN" destination="40C-Gd-V3c" id="2Cv-1w-mtb"/>
                         <outlet property="SearchUIConstrains" destination="bbx-Do-TpP" id="orz-f4-DoH"/>
                         <outlet property="SearchUIView" destination="pHH-aJ-cIt" id="nwz-dj-JSQ"/>
                         <outlet property="alphabetStackView" destination="Ea0-RY-aCk" id="6PH-jI-cZh"/>
