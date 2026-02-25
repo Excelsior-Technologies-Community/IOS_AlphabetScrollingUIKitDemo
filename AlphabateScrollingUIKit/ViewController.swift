@@ -12,13 +12,17 @@ class ViewController: UIViewController {
     @IBAction func searchTapped(_ sender: UIBarButtonItem) {
     }
     @IBOutlet weak var MyCOnUIVIew: UIView!
+    @IBOutlet weak var ConnectionReq: UIView!
     
+    @IBOutlet weak var AlphUiView: UIView!
     @IBOutlet weak var SearchUI: UIView!
     @IBOutlet weak var myConnectionButton: UIButton!
     @IBOutlet weak var findConnectionButton: UIButton!
     @IBOutlet weak var SearchUIView: UIView!
     @IBOutlet weak var alphabetStackView: UIStackView!
    
+    
+    @IBOutlet weak var ConenctionReq: UIButton!
     struct Member {
         let name: String
         let address: String
@@ -34,7 +38,7 @@ class ViewController: UIViewController {
         Member(name: "Arpan Hemantkumar", address: "Mumbai")
     ]
     var currentMode: ConnectionMode = .myConnection
-    @IBOutlet weak var ConnectionUIView: UIView!
+//    @IBOutlet weak var ConnectionUIView: UIView!
   
     @IBOutlet weak var FindConnectionview: UIView!
     
@@ -43,12 +47,14 @@ class ViewController: UIViewController {
     enum ConnectionMode {
         case myConnection
         case findConnection
+        case connectionRequest
     }
 
     
     var isSearchVisible = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateTabUI()
         allMembers.sort { $0.name < $1.name }
         tableView.register(
@@ -84,6 +90,9 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
     @IBAction func ConnectionRequest(_ sender: Any) {
+        currentMode = .connectionRequest
+        updateTabUI()
+        tableView.reloadData()
     }
     
     @IBAction func SearchButton(_ sender: Any) {
@@ -106,44 +115,64 @@ class ViewController: UIViewController {
             }
     }
     
-    func Design(){
+    func Design() {
+        let borderBlue = UIColor(red: 0.047, green: 0.208, blue: 0.914, alpha: 1.0)
         
+        AlphUiView.layer.cornerRadius = 10
         SearchUI.layer.cornerRadius = 10
         MyCOnUIVIew.layer.cornerRadius = 20
         FindConnectionview.layer.cornerRadius = 20
+        ConnectionReq.layer.cornerRadius = 20
+        MyCOnUIVIew.layer.cornerRadius = 20
 
         MyCOnUIVIew.layer.borderWidth = 1
         FindConnectionview.layer.borderWidth = 1
+        MyCOnUIVIew.layer.borderWidth = 1
+        
+        ConnectionReq.layer.borderColor = borderBlue.cgColor
+        ConnectionReq.layer.borderWidth = 1
+        
+        MyCOnUIVIew.layer.borderColor = borderBlue.cgColor
+        FindConnectionview.layer.borderColor = borderBlue.cgColor
+        MyCOnUIVIew.layer.borderColor = borderBlue.cgColor   
+
         SearchUIView.isHidden = true
         SearchUIConstrains.constant = 0
         setupAlphabet()
         SearchUIView.layer.cornerRadius = 10
-          tableView.delegate = self
-          tableView.dataSource = self
-        MyCOnUIVIew.layer.cornerRadius = 20
-        FindConnectionview.layer.cornerRadius = 20
-        ConnectionUIView.layer.cornerRadius = 20
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     func updateTabUI() {
         
-        let lightBlue = UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1.0)
-        let borderBlue = UIColor(red: 0.55, green: 0.75, blue: 1.0, alpha: 1.0)
-        
+        let selectedBG   = UIColor(red: 0.882, green: 0.882, blue: 0.953, alpha: 1.0) // #DDE1F3
+        let selectedFont = UIColor(red: 0.047, green: 0.208, blue: 0.914, alpha: 1.0) // #0C35E9
+        let normalBG     = UIColor.clear
+        let normalFont   = UIColor.gray
+
+        // Reset all 3 buttons to normal state first
+        MyCOnUIVIew.backgroundColor        = normalBG
+        FindConnectionview.backgroundColor = normalBG
+        MyCOnUIVIew.backgroundColor   = normalBG  // your 3rd button's view
+
+        myConnectionButton.setTitleColor(normalFont, for: .normal)
+        findConnectionButton.setTitleColor(normalFont, for: .normal)
+        ConenctionReq.setTitleColor(normalFont, for: .normal)
+
+        // Apply selected state to active button only
         switch currentMode {
             
         case .myConnection:
-            MyCOnUIVIew.backgroundColor = lightBlue
-            MyCOnUIVIew.layer.borderColor = borderBlue.cgColor
-            
-            FindConnectionview.backgroundColor = .clear
-            FindConnectionview.layer.borderColor = borderBlue.cgColor
-            
+            MyCOnUIVIew.backgroundColor = selectedBG
+            myConnectionButton.setTitleColor(selectedFont, for: .normal)
+
         case .findConnection:
-            FindConnectionview.backgroundColor = lightBlue
-            FindConnectionview.layer.borderColor = borderBlue.cgColor
-            
-            MyCOnUIVIew.backgroundColor = .clear
-            MyCOnUIVIew.layer.borderColor = borderBlue.cgColor
+            FindConnectionview.backgroundColor = selectedBG
+            findConnectionButton.setTitleColor(selectedFont, for: .normal)
+
+        case .connectionRequest:
+            ConnectionReq.backgroundColor = selectedBG
+            ConenctionReq.setTitleColor(selectedFont, for: .normal)
         }
     }
     func setupAlphabet() {
@@ -202,6 +231,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                    heightForFooterInSection section: Int) -> CGFloat {
         return 12
     }
+
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -210,7 +240,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         switch currentMode {
 
         case .myConnection:
-
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "MemberTableViewCell",
                 for: indexPath
@@ -221,7 +250,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
 
         case .findConnection:
-
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "FindConnectionTableViewCell",
                 for: indexPath
@@ -229,6 +257,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
             cell.nameLabel.text = member.name
             cell.addressLabel.text = member.address
+            return cell
+
+        case .connectionRequest:          // ← ADD THIS CASE
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "MemberTableViewCell",
+                for: indexPath
+            ) as! MemberTableViewCell
+
+            cell.nameLabel.text = member.name
+            cell.Adddlabel.text = member.address
             return cell
         }
     }
