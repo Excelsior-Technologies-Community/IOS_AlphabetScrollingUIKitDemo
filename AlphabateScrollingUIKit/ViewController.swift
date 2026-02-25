@@ -23,7 +23,9 @@ class ViewController: UIViewController {
         let name: String
         let address: String
     }
-
+    
+    var filteredMembers: [Member] = []
+    var allMembers: [Member] = []
     var members: [Member] = [
         Member(name: "Garima Vyas Purohit", address: "Ahmedabad"),
         Member(name: "Dhruvil Shah", address: "Surat"),
@@ -48,6 +50,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTabUI()
+        allMembers.sort { $0.name < $1.name }
         tableView.register(
               UINib(nibName: "MemberTableViewCell", bundle: nil),
               forCellReuseIdentifier: "MemberTableViewCell"
@@ -56,21 +59,18 @@ class ViewController: UIViewController {
             UINib(nibName: "FindConnectionTableViewCell", bundle: nil),
             forCellReuseIdentifier: "FindConnectionTableViewCell"
         )
-        SearchUI.layer.cornerRadius = 10
-        MyCOnUIVIew.layer.cornerRadius = 20
-        FindConnectionview.layer.cornerRadius = 20
+        Design()
+        
+        allMembers = [
+            Member(name: "Garima Vyas", address: "Ahmedabad"),
+            Member(name: "Geetika Patel", address: "Surat"),
+            Member(name: "Nitin Mistry", address: "Baroda"),
+            Member(name: "Neha Shah", address: "Rajkot"),
+            Member(name: "Arpan Kumar", address: "Mumbai"),
+            Member(name: "Dhruvil Shah", address: "Delhi")
+        ]
 
-        MyCOnUIVIew.layer.borderWidth = 1
-        FindConnectionview.layer.borderWidth = 1
-        SearchUIView.isHidden = true
-        SearchUIConstrains.constant = 0
-        setupAlphabet()
-        SearchUIView.layer.cornerRadius = 10
-          tableView.delegate = self
-          tableView.dataSource = self
-        MyCOnUIVIew.layer.cornerRadius = 20
-        FindConnectionview.layer.cornerRadius = 20
-        ConnectionUIView.layer.cornerRadius = 20
+        filteredMembers = allMembers
     }
     
     @IBAction func MyConnection(_ sender: Any) {
@@ -106,6 +106,24 @@ class ViewController: UIViewController {
             }
     }
     
+    func Design(){
+        
+        SearchUI.layer.cornerRadius = 10
+        MyCOnUIVIew.layer.cornerRadius = 20
+        FindConnectionview.layer.cornerRadius = 20
+
+        MyCOnUIVIew.layer.borderWidth = 1
+        FindConnectionview.layer.borderWidth = 1
+        SearchUIView.isHidden = true
+        SearchUIConstrains.constant = 0
+        setupAlphabet()
+        SearchUIView.layer.cornerRadius = 10
+          tableView.delegate = self
+          tableView.dataSource = self
+        MyCOnUIVIew.layer.cornerRadius = 20
+        FindConnectionview.layer.cornerRadius = 20
+        ConnectionUIView.layer.cornerRadius = 20
+    }
     func updateTabUI() {
         
         let lightBlue = UIColor(red: 0.80, green: 0.90, blue: 1.0, alpha: 1.0)
@@ -151,24 +169,34 @@ class ViewController: UIViewController {
     }
     @objc func alphabetTapped(_ sender: UITapGestureRecognizer) {
         
-        guard let label = sender.view as? UILabel else { return }
+        guard let label = sender.view as? UILabel,
+              let letter = label.text else { return }
         
-        let letter = label.text ?? ""
-        print("Tapped:", letter)
-        
-        // Here you scroll your table
+        // Find first index where name starts with tapped letter
+        if let index = allMembers.firstIndex(where: {
+            $0.name.uppercased().hasPrefix(letter)
+        }) {
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            
+            if index < tableView.numberOfRows(inSection: 0) {
+                tableView.scrollToRow(at: indexPath,
+                                      at: .top,
+                                      animated: true)
+            }
+        }
     }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return members.count
+        return filteredMembers.count
     }
 
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return allMembers.count
     }
     func tableView(_ tableView: UITableView,
                    heightForFooterInSection section: Int) -> CGFloat {
@@ -177,7 +205,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let member = members[indexPath.section]
+        let member = allMembers[indexPath.row]
 
         switch currentMode {
 

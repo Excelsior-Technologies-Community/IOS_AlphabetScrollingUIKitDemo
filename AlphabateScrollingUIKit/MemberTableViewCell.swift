@@ -26,6 +26,9 @@ class MemberTableViewCell: UITableViewCell {
         EndUI.layer.cornerRadius = 15
         profileImageView.layer.cornerRadius = 20
         BGView.layer.cornerRadius = 15
+        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        Adddlabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        Adddlabel.textColor = .gray
         
         
     }
