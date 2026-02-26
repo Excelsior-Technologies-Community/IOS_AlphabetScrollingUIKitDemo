@@ -49,6 +49,11 @@ class ViewController: UIViewController {
         "Connection Request"
     ]
     var selectedIndex = 0
+    var options = ["My Connection",
+                   "Find Connection",
+                   "Connection Request"]
+
+    
     @IBOutlet weak var SearchUIConstrains: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     enum ConnectionMode {
@@ -72,7 +77,7 @@ class ViewController: UIViewController {
             )
         }
         tableView.register(UINib(nibName: "MemberTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "MemberTableViewCell")
+                           forCellReuseIdentifier: "MemberCell")
 
         tableView.register(UINib(nibName: "FindConnectionTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "FindConnectionCell")
@@ -86,6 +91,10 @@ class ViewController: UIViewController {
             UINib(nibName: "FindConnectionTableViewCell", bundle: nil),
             forCellReuseIdentifier: "FindConnectionTableViewCell"
         )
+        tableView.showsVerticalScrollIndicator = false
+           tableView.showsHorizontalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         Design()
         navigationController?.isNavigationBarHidden = true
         allMembers = [
@@ -227,19 +236,31 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView,
-                       cellForRowAt indexPath: IndexPath)
-                       -> UITableViewCell {
-  
-                           if selectedIndex == 0 {
-                               return tableView.dequeueReusableCell(
-                                   withIdentifier: "MemberTableViewCell",
-                                   for: indexPath)
-                           } else {
-                               return tableView.dequeueReusableCell(
-                                   withIdentifier: "FindConnectionTableViewCell",
-                                   for: indexPath)
-                           }
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        if selectedIndex == 0 {
+
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "MemberCell",
+                for: indexPath) as! MemberTableViewCell
+
+            cell.nameLabel.text = "Member \(indexPath.row)"
+            cell.Adddlabel.text = "Ahmedabad, Gujarat"
+
+            return cell
+
+        } else {
+
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "FindConnectionCell",
+                for: indexPath) as! FindConnectionTableViewCell
+
+            cell.nameLabel.text = "Find User \(indexPath.row)"
+            cell.addressLabel.text = "Mumbai, India"
+
+            return cell
         }
+    }
 }
 struct Member {
     let name: String
@@ -250,20 +271,35 @@ extension ViewController :UICollectionViewDelegate,UICollectionViewDataSource , 
 
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return connections.count
+        return options.count
     }
 
+
     func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath)
-                        -> UICollectionViewCell {
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "ConnectionCell",
             for: indexPath) as! ConnectionCell
 
-        cell.button.setTitle(connections[indexPath.row], for: .normal)
+        let titles = ["My Connection",
+                      "Find Connection",
+                      "Connection Request"]
 
-        cell.updateUI(isSelected: indexPath.row == selectedIndex)
+        cell.button.setTitle(titles[indexPath.row], for: .normal)
+
+        // Reset first
+        cell.button.backgroundColor = .white
+        cell.button.setTitleColor(.black, for: .normal)
+
+        // Apply selected styling
+        if selectedIndex == indexPath.row {
+            cell.button.backgroundColor =
+                UIColor(red: 0.866, green: 0.882, blue: 0.953, alpha: 1)
+            cell.button.setTitleColor(
+                UIColor(red: 0.047, green: 0.207, blue: 0.914, alpha: 1),
+                for: .normal)
+        }
 
         return cell
     }
@@ -271,9 +307,15 @@ extension ViewController :UICollectionViewDelegate,UICollectionViewDataSource , 
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
 
+        let previousIndex = selectedIndex
         selectedIndex = indexPath.row
-        collectionView.reloadData()
-        tableView.reloadData()
+
+        collectionView.reloadItems(at: [
+            IndexPath(row: previousIndex, section: 0),
+            indexPath
+        ])
+
+        tableView.reloadData()   // 👈 THIS LINE WAS MISSING
     }
 
     func collectionView(_ collectionView: UICollectionView,
