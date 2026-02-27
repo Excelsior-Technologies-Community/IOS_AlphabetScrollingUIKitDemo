@@ -92,6 +92,7 @@ class ViewController: UIViewController {
             forCellReuseIdentifier: "FindConnectionTableViewCell"
         )
         tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
            tableView.showsHorizontalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false

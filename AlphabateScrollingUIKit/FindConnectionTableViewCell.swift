@@ -29,6 +29,11 @@ class FindConnectionTableViewCell: UITableViewCell {
         reportButton.setTitleColor(.label, for: .normal)
         ReportUIVIew.layer.cornerRadius = 10
         SendUIVIew.layer.cornerRadius = 10
+        sendButton.titleLabel?.numberOfLines = 1
+           reportButton.titleLabel?.numberOfLines = 1
+
+           sendButton.titleLabel?.lineBreakMode = .byTruncatingTail
+           reportButton.titleLabel?.lineBreakMode = .byTruncatingTail
         
     }
 
